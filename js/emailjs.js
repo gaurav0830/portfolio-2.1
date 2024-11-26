@@ -1,5 +1,5 @@
  // Initialize EmailJS
-    //emailjs.init("ykLQCYLinaoYKBlVu"); // Replace with your EmailJS User ID
+    emailjs.init("ykLQCYLinaoYKBlVu"); // Replace with your EmailJS User ID
   
     // Visitor tracking
     let visitHistory = JSON.parse(localStorage.getItem('visitHistory')) || [];
