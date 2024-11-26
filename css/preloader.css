@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --color-background: transparent;
+  --color-foreground: #FFD369;
+  --color-accent: rgb(170, 170, 170);
+  --font-primary: "IBM Plex Mono", monospace;
+  --margin: 32px;
+  --gutter: 16px;
+}
+
+
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  --s: 37px; /* control the size */
+  --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
+  --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
+  --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
+  --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
+  background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
+    var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
+    var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
+  background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terminal {
+  width: 90%; /* Take most of the viewport width */
+  max-width: 800px; /* Limit the maximum width */
+  height: 60%; /* Scale height to viewport */
+  max-height: 500px; /* Limit maximum height */
+  background: var(--color-background);
+  border: 1px solid ;
+  padding: var(--margin);
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px; /* Larger radius for smoother edges */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.terminal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(90, 90, 90, 0.05),
+    rgba(90, 90, 90, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.terminal-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter);
+}
+
+.commands-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter);
+}
+
+.command-line {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--gutter) * 0.5);
+  font-size: 16px; /* Default font size */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.prompt {
+  color: var(--color-accent);
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.command {
+  font-size: 20px;
+  color: var(--color-accent);
+  opacity: 0.9;
+}
+
+.cursor {
+  width: 8px;
+  height: 16px;
+  background: var(--color-accent);
+  display: inline-block;
+  margin-left: 4px;
+  opacity: 0;
+}
+
+.active-cursor {
+  opacity: 0.9;
+  animation: blink 1s infinite;
+}
+
+.loading-container {
+  margin-bottom: calc(var(--margin) * 2);
+  padding: var(--gutter);
+  background: rgba(90, 90, 90, 0.05);
+  border: 1px solid var(--color-foreground);
+  border-radius: 2px;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 20px;
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-foreground);
+}
+
+.loading-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--color-foreground);
+  box-shadow: 0 0 15px var(--color-foreground);
+}
+
+.loading-progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(170, 170, 170, 0.1) 10px,
+    rgba(170, 170, 170, 0.1) 20px
+  );
+}
+
+.percentage-wrap {
+  position: absolute;
+  bottom: var(--margin);
+  right: var(--margin);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.percentage {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-accent);
+  position: relative;
+  letter-spacing: 2px;
+}
+
+.percentage::before {
+  content: "[";
+  margin-right: 5px;
+}
+
+.percentage::after {
+  content: "]";
+  margin-left: 5px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .terminal {
+    width: 95%; /* Use most of the viewport */
+    height: 65%; /* Increase height slightly */
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --margin: 16px; /* Reduce margins */
+    --gutter: 8px;
+  }
+
+  .terminal {
+    padding: var(--margin);
+    height: 70%; /* Adjust height for smaller screens */
+  }
+
+  .command-line {
+    font-size: 14px; /* Reduce text size */
+  }
+
+  .prompt,
+  .command {
+    font-size: 18px;
+  }
+
+  .percentage {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal {
+    height: 75%; /* Further adjust height */
+    border-radius: 6px; /* Smaller border radius */
+  }
+
+  .command-line {
+    font-size: 12px; /* Smaller text size */
+  }
+
+  .prompt,
+  .command {
+    font-size: 16px;
+  }
+
+  .percentage {
+    font-size: 18px;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0;
+  }
+}
