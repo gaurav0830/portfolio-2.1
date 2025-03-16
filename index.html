@@ -9,6 +9,10 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="css/preloader.css">
+        <link rel="stylesheet" href="css/Skills.css">
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <script src="js/form.js"></script> 
+
     </head>
     <body>
         <!-- preloader -->
@@ -56,29 +60,28 @@
             <nav class="navbar">
                 <a href="#home" class="active">Home</a>
                 <a href="#about">ABOUT</a>
-                <a href="gaurav-resume.pdf">RESUME</a>
+                <a href="new-resume[gaurav]-photo.pdf">RESUME</a>
                 <a href="#portfolio">MYWORK</a>
                 <a href="#contact">CONTACT</a>
             </nav>
         </header>
         <section class="home" id="home">
             <div class="home-content">
-                <h3>HI I'M <br><span style="font-size: 50px;">GAURAV</span> <br>And I'm a <span>WEB DESIGNER</span></h3>
+                <h3 style="text-align: left;">HI I'M <br><span style="font-size: 50px;">GAURAV</span> <br>And I'm a <span>WEB DESIGNER</span></h3>
                 <div class="social-media">
                     <a href="https://github.com/gaurav0830"><i class='bx bxl-github'></i></a>
-                    <a href="#"><i class='bx bxs-envelope'></i></a>
-                    <a href="#"><i class='bx bxl-instagram' ></i></a>
-                    <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
+                    <a href="mailto:gaurav654413@gmail.com" class="email-link"><i class='bx bxs-envelope'></i></a>
+                    <a href="https://www.linkedin.com/in/gaurav-ramdas/"><i class='bx bxl-linkedin-square' ></i></a>
                 </div>
-                <button class="btn-shine"><a href="gaurav-resume.pdf" download="resume" target="_blank"><span>Download CV</span></a></button>
+                <button class="btn-shine"><a href="new-resume[gaurav]-photo.pdf" download="resume" target="_blank"><span>Download CV</span></a></button>
             </div>
             <div class="home-img" >
                 <img src="image/profile.png"  alt="profile pic">
             </div>
         </section>
-        <section class="designer" id="designer">
+        <!-- <section class="designer" id="designer">
             <h1>WebDesigner</h1>
-        </section>
+        </section> -->
 
         <section class="about" id="about">
             <div class="about-img" >
@@ -93,50 +96,130 @@
             </div>
         </section>
 
-        <section class="myskill" id="myskill">
-            <h2 class="heading">My<span>Skills</span></h2>
-
-            <div class="myskill-container">
-                <div class="myskill-box">
-                   <div class="info">
-                  <span>HTML</span>
-                </div>
-                <div class="progress-line"><span class="html"></span></div>
-                </div>
+        <section class="profile-section" id="profile-section">
+            <h2 class="heading">My <span>Profile</span></h2>
         
-                <div class="myskill-box">
-                    <div class="info">
-                        <span>CSS</span>
-                      </div>
-                      <div class="progress-line"><span class="css"></span></div>
-                </div>
-            
-                <div class="myskill-box">
-                    <div class="info">
-                        <span>BOOTSTRAP</span>
-                      </div>
-                      <div class="progress-line"><span class="bootstrap"></span></div>
-                </div>
-                <div class="myskill-box">
-                    <div class="info">
-                        <span>JAVASCRIPT</span>
-                      </div>
-                      <div class="progress-line"><span class="javascript"></span></div>
-                </div>
-                <div class="myskill-box">
-                <div class="info">
-                    <span>PYTHON</span>
-                  </div>
-                  <div class="progress-line"><span class="python"></span></div>
-                </div>
-                <div class="myskill-box">
-                    <div class="info">
-                        <span>C</span>
-                      </div>
-                      <div class="progress-line"><span class="c"></span></div>
-                    </div>
+            <!-- Navigation Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showSection('education')">Education</button>
+                <button class="tab-btn" onclick="showSection('skills')">Skills</button>
+                <!-- <button class="tab-btn" onclick="showSection('internship')">Internship</button> -->
+                <button class="tab-btn" onclick="showSection('certification')">Certification</button>
             </div>
-
+        
+            <!-- Education Section -->
+            <div class="content-section" id="education">
+                <h3 class="font-size: 25px;">My<span class="edu">Education</span></h3>
+                <div class="main-edu">
+                <div class="main-edu1">
+                    <div class="edu-1">
+                        <h2 class="school">Canara High School</h2>
+                        <p class="study">S.S.L.C.</p>
+                        <p class="year">2018</p>
+                    </div>
+                    <div class="edu-1">
+                        <h2 class="school">Canara PU College, Kodialbail, Mangalore</h2>
+                        <p class="study">Pre University</p>
+                        <p class="year">2018-2020</p>
+                    </div>
+                    <div class="edu-1">
+                        <h2 class="school">St Aloysius College (Autonomous), Mangalore</h2>
+                        <p class="study">Bachelor Of Computer Application</p>
+                        <p class="year">2020-2023</p>
+                    </div>
+                </div>
+                <div class="main-edu2">
+                        <div class="edu-2">
+                            <h2 class="school">St Joseph Engineering College, Mangalore</h2>
+                            <p class="study">Master Of Computer Application </p>
+                            <p class="year">2023-Present</p>
+                        </div>
+                </div>
+                </div>
+            </div>
+        
+            <!-- Skills Section -->
+            <div class="content-section" id="skills">
+                <h3 class="sk">My<span class="skill">SKILLS</span></h3>
+                <div class="myskill-container">
+                    <div class="myskill-box">
+                        <img src="image/react.png" height="70" width="70" class="skill-img" alt="">
+                        <div class="info"><span class="skill-p">REACT</span></div>
+                    </div>
+                    <div class="myskill-box">
+                        <img src="image/tailwindcss.png" height="70" width="70" class="skill-img" alt="">
+                        <div class="info"><span class="skill-p">TAILWIND CSS</span></div>
+                    </div>
+                    <div class="myskill-box">
+                        <img src="image/mongodb.png" height="70" width="70" class="skill-img" alt="">
+                        <div class="info"><span class="skill-p">MONGO DB</span></div>
+                    </div>
+                    <div class="myskill-box">
+                        <img src="image/expressjs.png" height="70" width="70" class="skill-img" alt="">
+                        <div class="info"><span class="skill-p">EXPRESS JS</span></div>
+                    </div>
+                    <div class="myskill-box">
+                        <img src="image/bootstrap.png" height="70" width="70" class="skill-img" alt="">
+                        <div class="info"><span class="skill-p">BOOTSTRAP</span></div>
+                    </div>
+                </div>
+                <div class="myskill-container">
+                    <div class="myskill-box">
+                        <img src="image/python.png" height="70" width="70" class="skill-img" alt="">
+                        <div class="info"><span class="skill-p">PYTHON</span></div>
+                    </div>
+                    <div class="myskill-box">
+                        <img src="image/html5.png" height="70" width="70" class="skill-img" alt="">
+                        <div class="info"><span class="skill-p">HTML 5</span></div>
+                    </div>
+                    <div class="myskill-box">
+                        <img src="image/css3.png" height="70" width="70" class="skill-img" alt="">
+                        <div class="info"><span class="skill-p">CSS 3</span></div>
+                    </div>
+                    <div class="myskill-box">
+                        <img src="image/javscript.png" height="70" width="70" class="skill-img" alt="">
+                        <div class="info"><span class="skill-p">JAVSCRIPT</span></div>
+                    </div>
+                    <div class="myskill-box">
+                        <img src="image/c-sharp.png" height="70" width="70" class="skill-img" alt="">
+                        <div class="info"><span class="skill-p">C#</span></div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Internship Section -->
+            <!-- <div class="content-section" id="internship">
+                <h3>Internship</h3>
+                <p>Data Analytics Intern - Codtech IT Solutions Pvt. Ltd.</p>
+            </div> -->
+        
+            <!-- Certification Section -->
+            <div class="content-section" id="certification">
+                <h3 class="ct">My<span class="certi">CERTIFICATIONS</span></h3>
+                <div class="certification-card-container">
+                    <a class="certification-card" href="certificate/gitGithub.pdf" >
+                        <img src="image/cert1.png" alt="github" class="certification-img">
+                        <div class="certification-info">
+                            <h4> Introduction to Git and GitHub</h4>
+                            <p>By Google</p>
+                        </div>
+                    </a>
+                    <a class="certification-card" href="certificate/javascript.pdf">
+                        <img src="image/javascript.png" alt="javascript" class="certification-img">
+                        <div class="certification-info">
+                            <h4>JAVSCRIPT</h4>
+                            <p>By Infosys</p>
+                        </div>
+                    </a>
+                    <a class="certification-card" href="certificate/ML.pdf">
+                        <img src="image/ml.png" alt="Machine learning" class="certification-img">
+                        <div class="certification-info">
+                            <h4> Introduction to Machine Learning with Python</h4>
+                            <p>By Arizona State University</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </section>
         <section class="portfolio"id="portfolio">
             <h2 class="heading">My<span>Work</span></h2>
@@ -164,7 +247,7 @@
                     <div class="portfolio-layer">
                         <h4>Syncwear</h4>
                         <p>In this project I made a website on smartwatch which we can add the product and also has a admin page to add,update and delete the product.</p>
-                        <a href="#"><button><i class='bx bxl-github'>GITHUB</i></button></a>
+                        <a href="https://github.com/gaurav0830/syncwear"><button><i class='bx bxl-github'>GITHUB</i></button></a>
                         <a href="#"><button><i class='bx bx-link-external'>Live</i></button></a>
                     </div>
                 </div>
@@ -173,27 +256,38 @@
                     <div class="portfolio-layer">
                         <h4>Joshiana 13.0</h4>
                         <p>In this project I made a website for college fest where I used HTML,CSS,PHP and MYSQL.It contains a registration page and home page .</p>
-                        <a href="#"><button><i class='bx bxl-github'>GITHUB</i></button></a>
+                        <a href="https://github.com/gaurav0830/joshian-13.0"><button><i class='bx bxl-github'>GITHUB</i></button></a>
                         <a href="#"><button><i class='bx bx-link-external'>Live</i></button></a>
                     </div>
                 </div>
+                <div class="portfolio-box">
+                    <img src="image/qpgs.jpg"alt="">
+                    <div class="portfolio-layer">
+                        <h4>QPGS</h4>
+                        <p>Where QPGS referred as Question Paper Generation System in this project I developed a question generation sustem where we can generate a question paper.the technology used is MERN Stack.</p>
+                        <a href="https://github.com/gaurav0830/qbps"><button><i class='bx bxl-github'>GITHUB</i></button></a>
+                        <a href="#"><button><i class='bx bx-link-external'>Live</i></button></a>
+                    </div>
+                </div>
+                
             </div>
         </section>
-        <section class="contact"id="contact">
+        <section class="contact" id="contact">
             <h2 class="heading">Contact<span>ME!</span></h2>
-
-            <form action="https://formsubmit.co/gauravr8402@gmail.com" method="POST" />
+        
+            <form id="contact-form">
                 <div class="input-box">
-                    <input type="text" name="Name" placeholder="Full Name">
-                    <input type="email" name="Email Address" placeholder="Email Address">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
                 </div>
                 <div class="input-box">
-                    <input type="number" name="Mobile Number" class="number" placeholder="Mobile Number">
+                    <input type="number" name="mobile" class="number" placeholder="Mobile Number" required>
                 </div>
-                <textarea name="Your Message" id="" cols="30" rows="10"placeholder="Your Message"></textarea>
-                <button class="btn-shine"><span>Send Message</span></button>
+                <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn-shine"><span>Send Message</span></button>
             </form>
         </section>
+        
 
         <footer class="footer">
             <div class="footer-text">
@@ -207,6 +301,7 @@
         <p id="status" hidden></p>
         <p id="visitCount" hidden>Total visits: 0</p>
     </main>
+        <script src="js/script.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         
