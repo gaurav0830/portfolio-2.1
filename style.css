@@ -404,7 +404,7 @@
  }
  
 
-.portfolio-container {
+ .portfolio-container {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
    gap: 2rem;
@@ -477,6 +477,10 @@
    gap: 0.5rem;
    transition: background-color 0.3s ease;
  }
+
+ 
+ 
+
 .contact h2{
    margin-bottom: 3rem;
 }
